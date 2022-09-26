@@ -1,6 +1,5 @@
 package com.liao_sky.Events;
 
-
 import com.liao_sky.List.FoodList;
 import com.liao_sky.List.ItemList;
 import com.liao_sky.Sky;
@@ -17,19 +16,20 @@ import org.apache.logging.log4j.Logger;
 public class RegistryEvents {
     public static final Logger LOGGER = Sky.LOGGER;
     public static String MOD_ID = Sky.MOD_ID;
+    public static final ItemGroup SKY = Sky.SKY_GROUP;
 
 
     @SubscribeEvent
     public static void registryItem(final RegistryEvent.Register<Item> event){
         event.getRegistry().registerAll(
                 ItemList.soup = new Item(new Item.Properties()
-                        .tab(ItemGroup.TAB_FOOD)
+                        .tab(SKY)  //.tab(ItemGroup.TAB_FOOD)
                         .stacksTo(1)
                         .food(FoodList.soup)
                 ).setRegistryName(location("soup")),
 
                 ItemList.gold_head = new Item(new Item.Properties()
-                        .tab(ItemGroup.TAB_FOOD)
+                        .tab(SKY)
                         .stacksTo(16)
                         .food(FoodList.gold_head)
                 ).setRegistryName(location("gold_head"))

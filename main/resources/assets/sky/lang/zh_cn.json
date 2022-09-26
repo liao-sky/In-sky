@@ -1,4 +1,5 @@
 {
   "item.sky.soup": "汤",
-  "item.sky.gold_head": "金头"
+  "item.sky.gold_head": "金头",
+  "itemGroup.in_sky": "Sky物品"
 }

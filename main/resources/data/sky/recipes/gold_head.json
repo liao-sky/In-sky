@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LGL",
+    "GBG",
+    "LGL"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:golden_apple"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "result": {
+    "item": "sky:gold_head",
+    "count": 4
+  }
+}

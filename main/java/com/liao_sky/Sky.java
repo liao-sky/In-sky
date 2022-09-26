@@ -1,5 +1,8 @@
 package com.liao_sky;
 
+import com.liao_sky.List.ItemList;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -13,6 +16,7 @@ public class Sky {
     public static Sky instance;
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "sky";
+    public static final ItemGroup SKY_GROUP = new Sky.skyGroup("in_sky");
     public Sky() {
         instance = this;
 
@@ -28,6 +32,18 @@ public class Sky {
     }
 
     private void onServerStarting(FMLServerStartingEvent event){
+
+    }
+
+    public static class skyGroup extends ItemGroup{
+        public skyGroup(String name) {
+            super(name);
+        }
+
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ItemList.gold_head);
+        }
 
     }
 }

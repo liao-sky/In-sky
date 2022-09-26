@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LGL",
+    "GBG",
+    "LGL"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "result": {
+    "item": "sky:soup",
+    "count": 4
+  }
+}
