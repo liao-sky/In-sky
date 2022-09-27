@@ -1,9 +1,13 @@
 package com.liao_sky.Events;
 
+import com.liao_sky.List.BlockList;
 import com.liao_sky.List.FoodList;
 import com.liao_sky.List.ItemList;
 import com.liao_sky.Sky;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
@@ -23,8 +27,8 @@ public class RegistryEvents {
     public static void registryItem(final RegistryEvent.Register<Item> event){
         event.getRegistry().registerAll(
                 ItemList.soup = new Item(new Item.Properties()
-                        .tab(SKY)  //.tab(ItemGroup.TAB_FOOD)
-                        .stacksTo(1)
+                        .tab(SKY)  //.tab(ItemGroup.TAB_FOOD)创造模式物品栏
+                        .stacksTo(1) //最大堆叠数量
                         .food(FoodList.soup)
                 ).setRegistryName(location("soup")),
 
@@ -32,13 +36,21 @@ public class RegistryEvents {
                         .tab(SKY)
                         .stacksTo(16)
                         .food(FoodList.gold_head)
-                ).setRegistryName(location("gold_head"))
+                ).setRegistryName(location("gold_head")),
+
+                ItemList.sky_block = new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                ).setRegistryName(location("sky_block"))
         );
     }
 
     public static void registryBlock(final RegistryEvent.Register<Block> event){
         event.getRegistry().registerAll(
-
+                BlockList.sky_block = new Block(AbstractBlock.Properties.of(Material.STONE) //材料
+                        .strength(5,6) //硬度和脆度
+                        .sound(SoundType.STONE)
+                ).setRegistryName(location("sky_block"))
         );
     }
 
