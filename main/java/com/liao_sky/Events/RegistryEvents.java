@@ -27,8 +27,8 @@ public class RegistryEvents {
     public static void registryItem(final RegistryEvent.Register<Item> event){
         event.getRegistry().registerAll(
                 ItemList.soup = new Item(new Item.Properties()
-                        .tab(SKY)  //.tab(ItemGroup.TAB_FOOD)创造模式物品栏
-                        .stacksTo(1) //最大堆叠数量
+                        .tab(SKY)  //.tab(ItemGroup.TAB_FOOD)
+                        .stacksTo(1)
                         .food(FoodList.soup)
                 ).setRegistryName(location("soup")),
 
@@ -47,8 +47,8 @@ public class RegistryEvents {
 
     public static void registryBlock(final RegistryEvent.Register<Block> event){
         event.getRegistry().registerAll(
-                BlockList.sky_block = new Block(AbstractBlock.Properties.of(Material.STONE) //材料
-                        .strength(5,6) //硬度和脆度
+                BlockList.sky_block = new Block(AbstractBlock.Properties.of(Material.STONE)
+                        .strength(5,6)
                         .sound(SoundType.STONE)
                 ).setRegistryName(location("sky_block"))
         );
