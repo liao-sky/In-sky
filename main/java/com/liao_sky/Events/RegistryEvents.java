@@ -44,7 +44,7 @@ public class RegistryEvents {
                 ).setRegistryName(location("sky_block"))
         );
     }
-
+    @SubscribeEvent
     public static void registryBlock(final RegistryEvent.Register<Block> event){
         event.getRegistry().registerAll(
                 BlockList.sky_block = new Block(AbstractBlock.Properties.of(Material.STONE)
