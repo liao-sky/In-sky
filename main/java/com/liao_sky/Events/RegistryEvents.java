@@ -1,62 +1,132 @@
 package com.liao_sky.Events;
 
-import com.liao_sky.List.BlockList;
 import com.liao_sky.List.FoodList;
-import com.liao_sky.List.ItemList;
 import com.liao_sky.Sky;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.EnchantedGoldenAppleItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.Logger;
+
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryEvents {
     public static final Logger LOGGER = Sky.LOGGER;
     public static String MOD_ID = Sky.MOD_ID;
-    public static final ItemGroup SKY = Sky.SKY_GROUP;
+    public static ItemGroup SKY = Sky.SKY_GROUP;
 
-
-    @SubscribeEvent
-    public static void registryItem(final RegistryEvent.Register<Item> event){
-        event.getRegistry().registerAll(
-                ItemList.soup = new Item(new Item.Properties()
-                        .tab(SKY)  //.tab(ItemGroup.TAB_FOOD)
+    public static class ItemRegistry{
+        public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+        public static RegistryObject<Item> soup = ITEMS.register("soup",
+                () -> new EnchantedGoldenAppleItem(new Item.Properties()
+                        .tab(SKY)
                         .stacksTo(1)
                         .food(FoodList.soup)
-                ).setRegistryName(location("soup")),
+                )
+        );
 
-                ItemList.gold_head = new Item(new Item.Properties()
+        public static RegistryObject<Item> gold_head = ITEMS.register("gold_head",
+                () -> new EnchantedGoldenAppleItem(new Item.Properties()
                         .tab(SKY)
                         .stacksTo(16)
                         .food(FoodList.gold_head)
-                ).setRegistryName(location("gold_head")),
+                )
+        );
 
-                ItemList.sky_block = new Item(new Item.Properties()
+        public static RegistryObject<Item> sky_block = ITEMS.register("sky_block",
+                ()-> new BlockItem(
+                        BlockRegistry.sky_block.get(),
+                        new Item.Properties()
                         .tab(SKY)
                         .stacksTo(64)
-                ).setRegistryName(location("sky_block"))
+                )
+        );
+
+        public static RegistryObject<Item> sky_ingot = ITEMS.register("sky_ingot",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> stone_ingot = ITEMS.register("stone_ingot",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> sky_stick = ITEMS.register("sky_stick",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> stone_stick = ITEMS.register("stone_stick",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> iron_stick = ITEMS.register("iron_stick",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> gold_stick = ITEMS.register("gold_stick",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> diamond_stick = ITEMS.register("diamond_stick",
+                () -> new Item(new Item.Properties()
+                        .tab(SKY)
+                        .stacksTo(64)
+                )
+        );
+
+        public static RegistryObject<Item> sky_block_ore = ITEMS.register("sky_block_ore",
+                ()-> new BlockItem(BlockRegistry.sky_block_ore.get(),
+                        new Item.Properties()
+                                .tab(SKY)
+                                .stacksTo(64)
+                )
         );
     }
-    @SubscribeEvent
-    public static void registryBlock(final RegistryEvent.Register<Block> event){
-        event.getRegistry().registerAll(
-                BlockList.sky_block = new Block(AbstractBlock.Properties.of(Material.STONE)
+
+    public static class BlockRegistry {
+        public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
+        public static RegistryObject<Block> sky_block = BLOCKS.register("sky_block",
+                () -> new Block(AbstractBlock.Properties
+                        .of(Material.STONE)
                         .strength(5,6)
                         .sound(SoundType.STONE)
-                ).setRegistryName(location("sky_block"))
+                )
         );
+
+        public static RegistryObject<Block> sky_block_ore = BLOCKS.register("sky_block_ore",
+                ()->new SkyOreBlock((AbstractBlock.Properties
+                        .of(Material.STONE)
+                        .harvestTool(ToolType.PICKAXE)
+                        .requiresCorrectToolForDrops()
+                        .sound(SoundType.STONE)
+                        .strength(8.0f, 8.0f)
+                )
+        ));
     }
-
-    private static ResourceLocation location(String name) {
-        return new ResourceLocation(MOD_ID,name);
-
-    }
-
 }

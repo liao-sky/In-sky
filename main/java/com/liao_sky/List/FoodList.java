@@ -20,23 +20,27 @@ public class FoodList {
                     .effect(
                             ()-> new EffectInstance(Effects.SATURATION,20*20,0),0.33f)
                     .alwaysEat()
+                    .meat()
                     .build()
             );
 
     public static final Food gold_head =
             (new Food.Builder().nutrition(4).saturationMod(1f)
                     .effect(
-                            ()-> new EffectInstance(Effects.REGENERATION,10*20,1),1f)
+                            ()-> new EffectInstance(Effects.REGENERATION,15*20,1),1f)
                     .effect(
-                            ()-> new EffectInstance(Effects.DAMAGE_RESISTANCE,5*20,1),1f)
+                            ()-> new EffectInstance(Effects.DAMAGE_RESISTANCE,10*20,1),0.8f)
                     .effect(
-                            ()-> new EffectInstance(Effects.ABSORPTION,10*20,1),1f)
+                            ()-> new EffectInstance(Effects.ABSORPTION,15*20,1),1f)
                     .effect(
-                            ()-> new EffectInstance(Effects.GLOWING,10*20,0),1f)
+                            ()-> new EffectInstance(Effects.GLOWING,20*20,0),1f)
                     .effect(
-                            ()-> new EffectInstance(Effects.HEALTH_BOOST,10*20,0),1f)
+                            ()-> new EffectInstance(Effects.HEALTH_BOOST,15*20,0),1f)
+                    .effect(
+                            ()-> new EffectInstance(Effects.MOVEMENT_SPEED,10*20,0),1f)
                     .fast()
                     .alwaysEat()
+                    .fast()
                     .build()
             );
 }

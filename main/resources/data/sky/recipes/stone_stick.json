@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "sky:stone_ingot"
+    }
+  },
+  "result": {
+    "item": "sky:stone_stick",
+    "count": 4
+  }
+}

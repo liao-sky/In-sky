@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "sky:diamond_stick",
+    "count": 4
+  }
+}

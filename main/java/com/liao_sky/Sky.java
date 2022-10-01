@@ -1,8 +1,11 @@
 package com.liao_sky;
 
-import com.liao_sky.List.ItemList;
+import com.liao_sky.Events.RegistryEvents;
+import com.liao_sky.world.gen.SkyOreCreation;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -22,6 +25,11 @@ public class Sky {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+
+        RegistryEvents.ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        RegistryEvents.BlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, SkyOreCreation::generateOres);
     }
     private void setup(final FMLCommonSetupEvent event){
 
@@ -42,7 +50,7 @@ public class Sky {
 
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ItemList.gold_head);
+            return new ItemStack(RegistryEvents.ItemRegistry.gold_head.get());
         }
 
     }

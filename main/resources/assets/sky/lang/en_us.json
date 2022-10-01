@@ -1,6 +1,14 @@
 {
   "item.sky.soup": "Soup",
   "item.sky.gold_head": "GoldHead",
-  "item.sky.sky_block": "Sky Block",
+  "item.sky.sky_ingot": "Sky Ingot",
+  "item.sky.stone_ingot": "Stone Ingot",
+  "item.sky.sky_stick": "Sky Stick",
+  "item.sky.stone_stick": "Stone Stick",
+  "item.sky.iron_stick": "Iron Stick",
+  "item.sky.gold_stick": "Gold Stick",
+  "item.sky.diamond_stick": "Diamond Stick",
+  "block.sky.sky_block": "Sky Block",
+  "block.sky.sky_block_ore": "Sky Block Ore",
   "itemGroup.in_sky": "Sky items"
 }

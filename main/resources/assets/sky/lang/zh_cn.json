@@ -1,6 +1,14 @@
 {
   "item.sky.soup": "汤",
   "item.sky.gold_head": "金头",
-  "item.sky.sky_block": "天块",
+  "item.sky.sky_ingot": "天锭",
+  "item.sky.stone_ingot": "石锭",
+  "item.sky.sky_stick": "天棒",
+  "item.sky.stone_stick": "石棒",
+  "item.sky.iron_stick": "铁棒",
+  "item.sky.gold_stick": "金棒",
+  "item.sky.diamond_stick": "钻石棒",
+  "block.sky.sky_block": "天块",
+  "block.sky.sky_block_ore": "天块矿",
   "itemGroup.in_sky": "Sky物品"
 }

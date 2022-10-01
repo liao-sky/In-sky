@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "sky:sky_ingot"
+    }
+  },
+  "result": {
+    "item": "sky:sky_block",
+    "count": 1
+  }
+}
