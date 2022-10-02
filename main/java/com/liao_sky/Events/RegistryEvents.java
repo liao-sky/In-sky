@@ -6,10 +6,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.EnchantedGoldenAppleItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -107,6 +104,37 @@ public class RegistryEvents {
                                 .stacksTo(64)
                 )
         );
+
+        public static RegistryObject<Item> sky_sword = ITEMS.register("sky_sword",
+                ()-> new SwordItem(SkyItemTier.SkyTier,10, -1.5f,
+                        new Item.Properties().tab(SKY)
+                )
+        );
+
+        public static RegistryObject<Item> sky_shovel = ITEMS.register("sky_shovel",
+                ()-> new AxeItem(SkyItemTier.SkyTier,3, -3.5f,
+                        new Item.Properties().tab(SKY)
+                )
+        );
+
+        public static RegistryObject<Item> sky_pickaxe = ITEMS.register("sky_pickaxe",
+                ()-> new PickaxeItem(SkyItemTier.SkyTier,3, -3.5f,
+                        new Item.Properties().tab(SKY)
+                )
+        );
+
+        public static RegistryObject<Item> sky_axe = ITEMS.register("sky_axe",
+                ()-> new AxeItem(SkyItemTier.SkyTier,12, -2.5f,
+                        new Item.Properties().tab(SKY)
+                )
+        );
+
+        public static RegistryObject<Item> sky_hoe = ITEMS.register("sky_hoe",
+                ()-> new HoeItem(SkyItemTier.SkyTier,3, -3.5f,
+                        new Item.Properties().tab(SKY)
+                )
+        );
+
     }
 
     public static class BlockRegistry {

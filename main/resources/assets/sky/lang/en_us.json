@@ -8,6 +8,11 @@
   "item.sky.iron_stick": "Iron Stick",
   "item.sky.gold_stick": "Gold Stick",
   "item.sky.diamond_stick": "Diamond Stick",
+  "item.sky.sky_sword": "Sky Sword",
+  "item.sky.sky_axe": "Sky Axe",
+  "item.sky.sky_hoe": "Sky Hoe",
+  "item.sky.sky_pickaxe": "Sky Pickaxe",
+  "item.sky.sky_shovel": "Sky Shovel",
   "block.sky.sky_block": "Sky Block",
   "block.sky.sky_block_ore": "Sky Block Ore",
   "itemGroup.in_sky": "Sky items"

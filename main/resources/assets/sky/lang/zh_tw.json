@@ -8,6 +8,11 @@
   "item.sky.iron_stick": "鐵棒",
   "item.sky.gold_stick": "金棒",
   "item.sky.diamond_stick": "鑽石棒",
+  "item.sky.sky_sword": "天劍",
+  "item.sky.sky_axe": "天斧",
+  "item.sky.sky_hoe": "天锄",
+  "item.sky.sky_pickaxe": "天稿",
+  "item.sky.sky_shovel": "天鏟",
   "block.sky.sky_block": "天塊",
   "block.sky.sky_block_ore": "天塊礦",
   "itemGroup.in_sky": "Sky物品"
