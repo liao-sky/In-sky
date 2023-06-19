@@ -15,5 +15,6 @@
   "item.sky.sky_shovel": "天鏟",
   "block.sky.sky_block": "天塊",
   "block.sky.sky_block_ore": "天塊礦",
-  "itemGroup.in_sky": "Sky物品"
+  "itemGroup.in_sky": "Sky物品",
+  "effect.sky.erosion": "碎甲"
 }

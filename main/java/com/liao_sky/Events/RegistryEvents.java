@@ -1,5 +1,6 @@
 package com.liao_sky.Events;
 
+import com.liao_sky.Effect.SkyEffects;
 import com.liao_sky.List.FoodList;
 import com.liao_sky.Sky;
 import net.minecraft.block.AbstractBlock;
@@ -7,6 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectType;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -156,5 +159,11 @@ public class RegistryEvents {
                         .strength(8.0f, 8.0f)
                 )
         ));
+    }
+    public static class EffectRegistry{
+        public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, MOD_ID);
+        //buff1
+        public static RegistryObject<Effect> EROSION = EFFECTS.register("erosion",
+                () -> new SkyEffects.ErosionEffect(EffectType.HARMFUL, 0x660033, false));
     }
 }

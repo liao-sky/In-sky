@@ -1,15 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "B"
-  ],
-  "key": {
-    "B": {
-      "item": "sky:sky_block"
-    }
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "sky:sky_block_ore"
   },
-  "result": {
-    "item": "sky:sky_ingot",
-    "count": 9
-  }
+  "result": "sky:sky_ingot",
+  "experience": 1.4,
+  "cookingtime": 400
 }

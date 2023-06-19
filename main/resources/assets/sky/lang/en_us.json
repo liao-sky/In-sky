@@ -15,5 +15,6 @@
   "item.sky.sky_shovel": "Sky Shovel",
   "block.sky.sky_block": "Sky Block",
   "block.sky.sky_block_ore": "Sky Block Ore",
-  "itemGroup.in_sky": "Sky items"
+  "itemGroup.in_sky": "Sky items",
+  "effect.sky.erosion": "Erosion Biohazard"
 }
