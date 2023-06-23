@@ -44,4 +44,19 @@ public class SkyEffects {
         }
     }
 
+    public static class ErosionEffectTier extends SkyEffectTier{
+        public ErosionEffectTier(EffectType type, int color, boolean isInstant) {
+            super(type, color, isInstant);
+        }
+        @Override
+        protected boolean canApplyEffect(int remainingTicks, int level) {
+            return remainingTicks % 7 == 0;
+        }
+        @Override
+        public boolean isBeneficial() {
+            return false;
+        }
+
+    }
+
 }

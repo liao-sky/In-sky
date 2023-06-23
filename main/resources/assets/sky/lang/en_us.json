@@ -16,5 +16,6 @@
   "block.sky.sky_block": "Sky Block",
   "block.sky.sky_block_ore": "Sky Block Ore",
   "itemGroup.in_sky": "Sky items",
-  "effect.sky.erosion": "Erosion Biohazard"
+  "effect.sky.erosion": "Erosion Biohazard",
+  "effect.sky.erosion_tier": "Erosion Biohazard Tier"
 }

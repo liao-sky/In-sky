@@ -16,5 +16,6 @@
   "block.sky.sky_block": "天块",
   "block.sky.sky_block_ore": "天块矿",
   "itemGroup.in_sky": "Sky物品",
-  "effect.sky.erosion": "碎甲"
+  "effect.sky.erosion": "碎甲",
+  "effect.sky.erosion_tier": "碎甲征兆"
 }

@@ -162,8 +162,9 @@ public class RegistryEvents {
     }
     public static class EffectRegistry{
         public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, MOD_ID);
-        //buff1
         public static RegistryObject<Effect> EROSION = EFFECTS.register("erosion",
                 () -> new SkyEffects.ErosionEffect(EffectType.HARMFUL, 0x660033, false));
+        public static RegistryObject<Effect> EROSION_TIER = EFFECTS.register("erosion_tier",
+                () -> new SkyEffects.ErosionEffectTier(EffectType.HARMFUL, 0x660033, false));
     }
 }
