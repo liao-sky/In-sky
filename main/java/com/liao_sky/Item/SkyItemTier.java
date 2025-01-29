@@ -1,5 +1,6 @@
-package com.liao_sky.Events;
+package com.liao_sky.Item;
 
+import com.liao_sky.Events.RegistryEvents;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
@@ -7,7 +8,7 @@ import net.minecraft.util.LazyValue;
 import java.util.function.Supplier;
 
 public enum SkyItemTier implements IItemTier{
-    SkyTier(5,2500,15.0f,5.0f,20,
+    SkyTier(5,2500,15.0f,5.0f,5,
             () ->
                 Ingredient.of(RegistryEvents.ItemRegistry.sky_ingot.get())
             );

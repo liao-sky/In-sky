@@ -5,7 +5,7 @@ import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 
 public class SkyEffectTier extends Effect {
-    private boolean instant;
+    private final boolean instant;
     private boolean isRegistered = false;
 
     public SkyEffectTier(EffectType type, int color, boolean isInstant) {
@@ -15,7 +15,7 @@ public class SkyEffectTier extends Effect {
 
     public boolean isInstantenous() {
         return false;
-    }
+    }//是否为瞬间效果
 
     @Override
     public boolean isDurationEffectTick(int remainingTicks, int level) {

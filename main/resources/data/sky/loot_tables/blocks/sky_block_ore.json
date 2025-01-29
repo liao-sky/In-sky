@@ -5,13 +5,8 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "sky:sky_block_ore"
-            }
-          ]
+          "type": "minecraft:item",
+          "name": "sky:sky_block_ore"
         }
       ]
     }

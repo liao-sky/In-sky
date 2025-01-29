@@ -1,4 +1,4 @@
-package com.liao_sky.world.gen;
+package com.liao_sky.World.gen;
 
 import com.liao_sky.Events.RegistryEvents;
 import net.minecraft.block.BlockState;
@@ -22,7 +22,7 @@ public class SkyOreCreation {
                     0,
                     0,
                     10,
-                    4);
+                    2);
         }
     }
 

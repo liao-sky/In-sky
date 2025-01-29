@@ -1,15 +1,18 @@
 package com.liao_sky.Events;
 
+import com.liao_sky.Block.SkyOreBlock;
 import com.liao_sky.Effect.SkyEffects;
+import com.liao_sky.Item.armor.SkyArmorMaterial;
+import com.liao_sky.Item.SkyItemTier;
 import com.liao_sky.List.FoodList;
 import com.liao_sky.Sky;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
+import net.minecraft.potion.*;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -72,34 +75,6 @@ public class RegistryEvents {
                 )
         );
 
-        public static RegistryObject<Item> stone_stick = ITEMS.register("stone_stick",
-                () -> new Item(new Item.Properties()
-                        .tab(SKY)
-                        .stacksTo(64)
-                )
-        );
-
-        public static RegistryObject<Item> iron_stick = ITEMS.register("iron_stick",
-                () -> new Item(new Item.Properties()
-                        .tab(SKY)
-                        .stacksTo(64)
-                )
-        );
-
-        public static RegistryObject<Item> gold_stick = ITEMS.register("gold_stick",
-                () -> new Item(new Item.Properties()
-                        .tab(SKY)
-                        .stacksTo(64)
-                )
-        );
-
-        public static RegistryObject<Item> diamond_stick = ITEMS.register("diamond_stick",
-                () -> new Item(new Item.Properties()
-                        .tab(SKY)
-                        .stacksTo(64)
-                )
-        );
-
         public static RegistryObject<Item> sky_block_ore = ITEMS.register("sky_block_ore",
                 ()-> new BlockItem(BlockRegistry.sky_block_ore.get(),
                         new Item.Properties()
@@ -109,7 +84,7 @@ public class RegistryEvents {
         );
 
         public static RegistryObject<Item> sky_sword = ITEMS.register("sky_sword",
-                ()-> new SwordItem(SkyItemTier.SkyTier,10, -1.5f,
+                ()-> new SwordItem(SkyItemTier.SkyTier,14, -1.5f,
                         new Item.Properties().tab(SKY)
                 )
         );
@@ -138,6 +113,37 @@ public class RegistryEvents {
                 )
         );
 
+        public static final RegistryObject<Item> sky_helmet = ITEMS.register("sky_helmet",
+                () -> new ArmorItem(
+                        SkyArmorMaterial.SKY,
+                        EquipmentSlotType.HEAD,
+                        (new Item.Properties()).tab(SKY)
+                )
+        );
+
+        public static final RegistryObject<Item> sky_chestplate = ITEMS.register("sky_chestplate",
+                () -> new ArmorItem(
+                        SkyArmorMaterial.SKY,
+                        EquipmentSlotType.CHEST,
+                        (new Item.Properties()).tab(SKY)
+                )
+        );
+
+        public static final RegistryObject<Item> sky_leggings = ITEMS.register("sky_leggings",
+                () -> new ArmorItem(
+                        SkyArmorMaterial.SKY,
+                        EquipmentSlotType.LEGS,
+                        (new Item.Properties()).tab(SKY)
+                )
+        );
+
+        public static final RegistryObject<Item> sky_boots = ITEMS.register("sky_boots",
+                () -> new ArmorItem(
+                        SkyArmorMaterial.SKY,
+                        EquipmentSlotType.FEET,
+                        (new Item.Properties()).tab(SKY)
+                )
+        );
     }
 
     public static class BlockRegistry {
@@ -145,7 +151,7 @@ public class RegistryEvents {
         public static RegistryObject<Block> sky_block = BLOCKS.register("sky_block",
                 () -> new Block(AbstractBlock.Properties
                         .of(Material.STONE)
-                        .strength(5,6)
+                        .strength(5.0f,6.0f)
                         .sound(SoundType.STONE)
                 )
         );
@@ -162,9 +168,22 @@ public class RegistryEvents {
     }
     public static class EffectRegistry{
         public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, MOD_ID);
-        public static RegistryObject<Effect> EROSION = EFFECTS.register("erosion",
+        public static RegistryObject<Effect> erosion = EFFECTS.register("erosion",
                 () -> new SkyEffects.ErosionEffect(EffectType.HARMFUL, 0x660033, false));
-        public static RegistryObject<Effect> EROSION_TIER = EFFECTS.register("erosion_tier",
-                () -> new SkyEffects.ErosionEffectTier(EffectType.HARMFUL, 0x660033, false));
+
+        public static RegistryObject<Effect> fracture = EFFECTS.register("fracture",
+                ()->new SkyEffects.FractureEffect(EffectType.HARMFUL,0xFFFFFF,false));
+    }
+
+    public static class  PotionRegistry{
+        public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTION_TYPES, MOD_ID);
+        public static RegistryObject<Potion> erosion = POTIONS.register("erosion",
+                ()->new Potion(new EffectInstance(EffectRegistry.erosion.get(),20*45)));
+
+        public static RegistryObject<Potion> long_erosion = POTIONS.register("long_erosion",
+                ()->new Potion("erosion",new EffectInstance(EffectRegistry.erosion.get(),20*90)));
+
+        public static RegistryObject<Potion> strong_erosion = POTIONS.register("strong_erosion",
+                ()->new Potion("erosion",new EffectInstance(EffectRegistry.erosion.get(),20*45,1)));
     }
 }

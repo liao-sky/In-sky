@@ -1,5 +1,6 @@
-package com.liao_sky.Events;
+package com.liao_sky.Block;
 
+import com.liao_sky.Events.RegistryEvents;
 import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.MathHelper;
 
@@ -13,7 +14,7 @@ public class SkyOreBlock extends OreBlock {
     @Override
     protected int xpOnDrop(Random p_220281_1_) {
         if (this.is(RegistryEvents.BlockRegistry.sky_block_ore.get())) {
-            return MathHelper.nextInt(p_220281_1_, 2, 6);
+            return MathHelper.nextInt(p_220281_1_, 0, 0);
         }
         else{
             return 0;
