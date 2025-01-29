@@ -13,6 +13,7 @@
   "block.sky.sky_block_ore": "Sky Block Ore",
   "itemGroup.in_sky": "Sky items",
   "effect.sky.erosion": "Erosion Biohazard",
+  "effect.sky.fracture": "Fracture",
   "item.sky.sky_helmet": "Sky Helmet",
   "item.sky.sky_chestplate": "Sky Chestplate",
   "item.sky.sky_leggings": "Sky Leggings",
@@ -20,5 +21,6 @@
   "item.minecraft.tipped_arrow.effect.erosion": "Erosion Tipped Arrow",
   "item.minecraft.potion.effect.erosion": "Erosion Potion",
   "item.minecraft.splash_potion.effect.erosion": "Erosion Splash Potion",
-  "item.minecraft.lingering_potion.effect.erosion": "Erosion Lingering Potion"
+  "item.minecraft.lingering_potion.effect.erosion": "Erosion Lingering Potion",
+  "death.attack.fracture": "Fracture Death"
 }

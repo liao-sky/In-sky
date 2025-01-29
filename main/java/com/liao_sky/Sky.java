@@ -23,7 +23,7 @@ public class Sky {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onServerStarting);
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onServerStarting);
 
         EventLoader.Loader();
     }

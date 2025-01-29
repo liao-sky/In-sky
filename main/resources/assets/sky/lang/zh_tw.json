@@ -13,6 +13,7 @@
   "block.sky.sky_block_ore": "天塊礦",
   "itemGroup.in_sky": "Sky物品",
   "effect.sky.erosion": "碎甲",
+  "effect.sky.fracture": "骨折",
   "item.sky.sky_helmet": "天盔",
   "item.sky.sky_chestplate": "天甲",
   "item.sky.sky_leggings": "天裤",
@@ -20,5 +21,6 @@
   "item.minecraft.tipped_arrow.effect.erosion": "碎甲箭",
   "item.minecraft.potion.effect.erosion": "碎甲药水",
   "item.minecraft.splash_potion.effect.erosion": "喷溅型碎甲药水",
-  "item.minecraft.lingering_potion.effect.erosion": "滞留型碎甲药水"
+  "item.minecraft.lingering_potion.effect.erosion": "滞留型碎甲药水",
+  "death.attack.fracture": "骨折致死"
 }

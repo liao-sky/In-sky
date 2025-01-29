@@ -14,9 +14,7 @@ import java.util.function.Supplier;
 
 public enum SkyArmorMaterial implements IArmorMaterial {
     SKY("sky", 40, new int[]{5,8,10,5}, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 4.0F, 2.0F,
-            ()-> {
-                return Ingredient.of(RegistryEvents.ItemRegistry.sky_ingot.get());
-            });
+            ()-> Ingredient.of(RegistryEvents.ItemRegistry.sky_ingot.get()));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;

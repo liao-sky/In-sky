@@ -3,15 +3,11 @@ package com.liao_sky.Entity;
 import com.liao_sky.Events.RegistryEvents;
 import com.liao_sky.Random.Probability;
 import com.liao_sky.Sky;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.util.text.*;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -37,17 +33,18 @@ public class EffectEvent {
             float maxHealth = beHurt.getMaxHealth();
             float difference = amount - armorValue;
             int amplified = 0;
-            if (difference > armorValue + 0.3 * maxHealth + 1) {
-                amplified = 4;
-            } else if (difference > 0.75 * (armorValue + 0.3 * maxHealth) + 1) {
-                amplified = 3;
-            } else if (difference > 0.5 * (armorValue + 0.3 * maxHealth) + 1) {
-                amplified = 2;
-            } else if (difference > 0.25 * (armorValue + 0.3 * maxHealth) + 1) {
+            if (amount > 0.25 * (armorValue + 0.1 * maxHealth) + 0.5) {
                 amplified = 1;
+            } else if (amount > 0.5 * (armorValue + 0.1 * maxHealth) + 0.5)  {
+                amplified = 2;
+            } else if (amount > 0.75 * (armorValue + 0.15 * maxHealth) + 0.5) {
+                amplified = 3;
+            } else if (amount > armorValue + 0.2 * maxHealth + 0.5) {
+                amplified = 4;
             }
-            if (Probability.P(0.05f * P) && difference > 0 && source == DamageSource.GENERIC) {
-                beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * difference), amplified));
+            if (Probability.P(0.25f * P * amplified) && difference > 0 && source == DamageSource.GENERIC) {
+                beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * amount), amplified));
+                beHurt.sendMessage(new StringTextComponent("°Ïdº◊±¨¡®£ø£°°Ïd"+ (amplified + 1)),beHurt.getUUID());
             }
             return true;
         }
@@ -83,12 +80,15 @@ public class EffectEvent {
                 int amplified = Effect.getAmplifier()+1;
                 if (Probability.P(0.5f)){
                     Player.hurt(new DamageSource("fracture").bypassArmor().bypassInvul(), Damage * amplified);
+                    Player.sendMessage(new StringTextComponent("°Ïd∞•”¥£° ‹…À¡À°Ïd"),Player.getUUID());
                 }
                 if (Probability.P(0.25f)) {
                     Player.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.fracture.get(), 20 * 10 * amplified, amplified));
+                    Player.sendMessage(new StringTextComponent("°Ïd‘””„~π«’€—œ÷ÿ¡À~°Ïd"),Player.getUUID());
                 }
             }else if (Probability.P(0.05f * P)) {
                 Player.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.fracture.get(), 20 * 10, 0));
+                Player.sendMessage(new StringTextComponent("°Ïdπ«’€¡À°Ïd"),Player.getUUID());
             }
             return true;
         }

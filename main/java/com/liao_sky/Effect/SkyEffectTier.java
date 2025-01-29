@@ -15,7 +15,7 @@ public class SkyEffectTier extends Effect {
 
     public boolean isInstantenous() {
         return false;
-    }//是否为瞬间效果
+    }//是否为即时效果
 
     @Override
     public boolean isDurationEffectTick(int remainingTicks, int level) {
