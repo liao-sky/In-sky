@@ -21,7 +21,7 @@ public class EffectEvent {
     @Cancelable
     public static class ErosionEvent{
         public static float P = 1.0f;
-        public static boolean Erosion(LivingHurtEvent event) {
+        public static boolean Erosion(final LivingHurtEvent event) {
             if (event.isCanceled()) {
                 return false;
             }
@@ -30,21 +30,23 @@ public class EffectEvent {
             World world = beHurt.getCommandSenderWorld();
             Difficulty hard = world.getDifficulty();
             float amount = event.getAmount();
-            float armorValue = beHurt.getArmorValue();
-            float maxHealth = beHurt.getMaxHealth();
-            int amplified = 0;
-            if (amount > 0.25 * (armorValue + 0.1 * maxHealth) + 0.5) {
-                amplified = 1;
-            } else if (amount > 0.5 * (armorValue + 0.1 * maxHealth) + 0.5)  {
-                amplified = 2;
-            } else if (amount > 0.75 * (armorValue + 0.15 * maxHealth) + 0.5) {
-                amplified = 3;
-            } else if (amount > armorValue + 0.2 * maxHealth + 0.5) {
-                amplified = 4;
+            int ArmorValue = beHurt.getArmorValue();
+            EffectInstance Effect = beHurt.getEffect(RegistryEvents.EffectRegistry.erosion.get());
+            if(Effect!=null && amount>ArmorValue*0.2f){
+                int amplified = Effect.getAmplifier();
+                if (Probability.P(0.25f * Probability.DtoP(hard)* P)){
+                    event.setAmount(amount*((amplified+1)*Probability.DtoP(hard)+10)/10);
+                    beHurt.sendMessage(new StringTextComponent("°Ïd∫√Õ¥£ø£°+1°Ïd °Ï4 ‹µΩ…À∫¶x"+(10+amplified*Probability.DtoP(hard))/10+"°Ï4"),beHurt.getUUID());
+                }
+                if (Probability.P(0.25f * Probability.DtoP(hard)* P) && source.getDirectEntity()!=null) {
+                    amplified++;
+                    beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * amount * Probability.DtoP(hard)), amplified));
+                    beHurt.sendMessage(new StringTextComponent("°Ïdº◊”÷±¨¡®£ø£°+1°Ïd °Ï4 ‹µΩ…À∫¶x"+(10+amplified*Probability.DtoP(hard))/10+"(”–∏≈¬ )°Ï4"),beHurt.getUUID());
+                }
             }
-            if (Probability.P(0.25f * Probability.DtoP(hard)* P * ++amplified) && source == DamageSource.GENERIC) {
-                beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * amount), amplified));
-                beHurt.sendMessage(new StringTextComponent("°Ïdº◊±¨¡®£ø£°°Ïd"+ (amplified + 1)),beHurt.getUUID());
+            else if (Probability.P(0.25f * Probability.DtoP(hard)* P) && source.getDirectEntity()!=null && amount>ArmorValue*0.2f) {
+                beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * amount * Probability.DtoP(hard)), 0));
+                beHurt.sendMessage(new StringTextComponent("°Ïdº◊±¨¡®£ø£°°Ïd"),beHurt.getUUID());
             }
             return true;
         }
@@ -80,16 +82,16 @@ public class EffectEvent {
             EffectInstance Effect = Player.getEffect(RegistryEvents.EffectRegistry.fracture.get());
             if (Effect != null) {
                 int amplified = Effect.getAmplifier()+1;
-                if (Probability.P(0.5f)){
+                if (Probability.P(0.5f*Probability.DtoP(hard))){
                     Player.hurt(new DamageSource("fracture").bypassArmor().bypassInvul(), Damage * amplified * Probability.DtoP(hard));
                     Player.sendMessage(new StringTextComponent("°Ïd∞•”¥£° ‹…À¡À°Ïd"),Player.getUUID());
                 }
-                if (Probability.P(0.25f)) {
-                    Player.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.fracture.get(), 20 * 10 * amplified, amplified));
+                if (Probability.P(0.25f*Probability.DtoP(hard))) {
+                    Player.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.fracture.get(), (int) (20 * 10 * amplified * Probability.DtoP(hard)), amplified));
                     Player.sendMessage(new StringTextComponent("°Ïd‘””„~π«’€—œ÷ÿ¡À~°Ïd"),Player.getUUID());
                 }
             }else if (Probability.P(0.05f * P * Probability.DtoP(hard))) {
-                Player.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.fracture.get(), 20 * 10, 0));
+                Player.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.fracture.get(), (int) (20 * 10 * Probability.DtoP(hard)), 0));
                 Player.sendMessage(new StringTextComponent("°Ïdπ«’€¡À°Ïd"),Player.getUUID());
             }
             return true;

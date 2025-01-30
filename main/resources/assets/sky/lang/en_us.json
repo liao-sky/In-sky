@@ -22,5 +22,5 @@
   "item.minecraft.potion.effect.erosion": "Erosion Potion",
   "item.minecraft.splash_potion.effect.erosion": "Erosion Splash Potion",
   "item.minecraft.lingering_potion.effect.erosion": "Erosion Lingering Potion",
-  "death.attack.fracture": "Fracture Death"
+  "death.attack.fracture": "%1$s Fracture Death"
 }

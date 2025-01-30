@@ -22,5 +22,5 @@
   "item.minecraft.potion.effect.erosion": "碎甲药水",
   "item.minecraft.splash_potion.effect.erosion": "喷溅型碎甲药水",
   "item.minecraft.lingering_potion.effect.erosion": "滞留型碎甲药水",
-  "death.attack.fracture": "骨折致死"
+  "death.attack.fracture": "%1$s骨折致死"
 }
