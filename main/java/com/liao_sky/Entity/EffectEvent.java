@@ -9,7 +9,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.*;
