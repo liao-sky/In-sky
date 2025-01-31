@@ -39,18 +39,21 @@ public class EffectEvent {
             EffectInstance Effect = beHurt.getEffect(RegistryEvents.EffectRegistry.erosion.get());
             if(Effect!=null && amount>ArmorValue*0.3f){
                 int amplified = Effect.getAmplifier();
-                if (Probability.P(0.25f * Probability.DtoP(hard)* P)){
+                if (Probability.P(0.25f * Probability.DtoP(hard) * P)){
                     event.setAmount(amount*((amplified+1)*Probability.DtoP(hard)+10)/10);
                     beHurt.sendMessage(new StringTextComponent("§d好痛？！+1§d §4受到伤害x"+(10+amplified*Probability.DtoP(hard))/10+"§4"),beHurt.getUUID());
                 }
-                if (Probability.P(0.25f * Probability.DtoP(hard)* P) && source.getDirectEntity()!=null) {
+                if (Probability.P(0.25f * Probability.DtoP(hard) * P) && source.getDirectEntity()!=null) {
                     amplified++;
                     beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * amount * Probability.DtoP(hard)), amplified));
                     beHurt.sendMessage(new StringTextComponent("§d甲又爆哩？！+1§d §4受到伤害x"+(10+amplified*Probability.DtoP(hard))/10+"(有概率)§4"),beHurt.getUUID());
                 }
-                if (Probability.P(0.05f*P) && amplified >= 10){
+                if (amplified == 9){
+                    beHurt.sendMessage(new StringTextComponent("§4!警告，碎甲层数过高！§4"),beHurt.getUUID());
+                }
+                if (Probability.P(0.05f * Probability.DtoP(hard) * P) && amplified >= 10){
                     for (ItemStack slot : Slots) {
-                        if(slot.getStack().getEquipmentSlot()!= EquipmentSlotType.MAINHAND && Probability.P(0.25f*P)){
+                        if(slot.getStack().getEquipmentSlot()!= EquipmentSlotType.MAINHAND && Probability.P(0.25f * Probability.DtoP(hard) * P)){
                             slot.setCount(0);
                             beHurt.sendMessage(new StringTextComponent("§4！你的甲不堪重负！§4"),beHurt.getUUID());
                             //slot.hurtAndBreak();
@@ -58,7 +61,7 @@ public class EffectEvent {
                     }
                 }
             }
-            else if (Probability.P(0.25f * Probability.DtoP(hard)* P) && source.getDirectEntity()!=null && amount>ArmorValue*0.2f) {
+            else if (Probability.P(0.25f * Probability.DtoP(hard) * P) && source.getDirectEntity()!=null && amount>ArmorValue*0.2f) {
                 beHurt.addEffect(new EffectInstance(RegistryEvents.EffectRegistry.erosion.get(), (int) (20 * amount * Probability.DtoP(hard)), 0));
                 beHurt.sendMessage(new StringTextComponent("§d甲爆哩？！§d"),beHurt.getUUID());
             }
@@ -100,7 +103,7 @@ public class EffectEvent {
             if (Effect != null && Flag) {
                 int amplified = Effect.getAmplifier()+1;
                 if (Probability.P(0.5f*Probability.DtoP(hard))){
-                    Player.hurt(new DamageSource("fracture").bypassArmor().bypassInvul(), Damage * amplified * Probability.DtoP(hard));
+                    Player.hurt(new DamageSource("fracture").bypassArmor().bypassInvul().bypassMagic(), Damage * amplified * Probability.DtoP(hard));
                     Player.sendMessage(new StringTextComponent("§d哎哟！受伤了§d"),Player.getUUID());
                 }
                 if (Probability.P(0.25f*Probability.DtoP(hard))) {

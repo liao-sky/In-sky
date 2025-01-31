@@ -31,7 +31,7 @@ public class RegistryEvents {
         public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
         public static RegistryObject<Item> soup = ITEMS.register("soup",
                 () -> new EnchantedGoldenAppleItem(new Item.Properties()
-                        .tab(SKY)
+                        .tab(SKY).rarity(Rarity.EPIC)
                         .stacksTo(1)
                         .food(FoodList.soup)
                 )
@@ -39,7 +39,7 @@ public class RegistryEvents {
 
         public static RegistryObject<Item> gold_head = ITEMS.register("gold_head",
                 () -> new EnchantedGoldenAppleItem(new Item.Properties()
-                        .tab(SKY)
+                        .tab(SKY).rarity(Rarity.EPIC)
                         .stacksTo(16)
                         .food(FoodList.gold_head)
                 )

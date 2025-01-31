@@ -40,7 +40,6 @@ public class FoodList {
                             ()-> new EffectInstance(Effects.MOVEMENT_SPEED,10*20,0),1f)
                     .fast()
                     .alwaysEat()
-                    .fast()
                     .build()
             );
 }
