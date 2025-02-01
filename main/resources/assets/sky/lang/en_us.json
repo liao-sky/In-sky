@@ -22,5 +22,13 @@
   "item.minecraft.potion.effect.erosion": "Erosion Potion",
   "item.minecraft.splash_potion.effect.erosion": "Erosion Splash Potion",
   "item.minecraft.lingering_potion.effect.erosion": "Erosion Lingering Potion",
-  "death.attack.fracture": "%1$s Fracture Death"
+  "death.attack.fracture": "%1$s Fracture Death",
+  "effect.sky.erosion.armor_break": "¡ì4!Your armor is overwhelmed!¡ì4",
+  "effect.sky.erosion.warning": "¡ì4!Warning, erosion stacks is too high!¡ì4",
+  "effect.sky.erosion.break_again": "¡ìdArmor is broken again?!¡ìd ¡ì4Taken damage x%s (Probably)¡ì4",
+  "effect.sky.erosion.hurt": "¡ì4Taken damage x%s¡ì4",
+  "effect.sky.erosion.break": "¡ìdArmor is broken?!¡ìd",
+  "effect.sky.fracture.hurt": "¡ìdWounded!¡ìd",
+  "effect.sky.fracture.severe": "¡ìdThe fracture was severe¡ìd",
+  "effect.sky.fracture.begin": "¡ìdYou have broken bones¡ìd"
 }

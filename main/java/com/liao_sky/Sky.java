@@ -1,9 +1,11 @@
 package com.liao_sky;
 
-import com.liao_sky.Events.EventLoader;
+import com.liao_sky.Events.EffectEvents;
 import com.liao_sky.Events.RegistryEvents;
+import com.liao_sky.World.gen.SkyOreCreation;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,7 +27,15 @@ public class Sky {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onServerStarting);
 
-        EventLoader.Loader();
+        RegistryEvents.ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        RegistryEvents.BlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        RegistryEvents.EffectRegistry.EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        RegistryEvents.PotionRegistry.POTIONS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
+        MinecraftForge.EVENT_BUS.register(SkyOreCreation.class);
+        MinecraftForge.EVENT_BUS.register(EffectEvents.ErosionEvent.class);
+        MinecraftForge.EVENT_BUS.register(EffectEvents.FractureEvent.class);
+
     }
     private void setup(final FMLCommonSetupEvent event){
 
@@ -35,7 +45,7 @@ public class Sky {
 
     }
 
-    private void onServerStarting(FMLServerStartingEvent event){
+    private void onServerStarting(final FMLServerStartingEvent event){
 
     }
 

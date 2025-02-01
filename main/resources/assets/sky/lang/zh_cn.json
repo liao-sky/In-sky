@@ -18,9 +18,17 @@
   "itemGroup.in_sky": "Sky物品",
   "effect.sky.erosion": "碎甲",
   "effect.sky.fracture": "骨折",
+  "effect.sky.fracture.hurt": "§d哎哟!受伤了§d",
+  "effect.sky.fracture.severe": "§d杂鱼~骨折严重了~§d",
+  "effect.sky.fracture.begin": "§d你骨折了§d",
   "item.minecraft.tipped_arrow.effect.erosion": "碎甲箭",
   "item.minecraft.potion.effect.erosion": "碎甲药水",
   "item.minecraft.splash_potion.effect.erosion": "喷溅型碎甲药水",
   "item.minecraft.lingering_potion.effect.erosion": "滞留型碎甲药水",
-  "death.attack.fracture": "%1$s骨折致死"
+  "death.attack.fracture": "%1$s骨折致死",
+  "effect.sky.erosion.armor_break": "§4!你的甲不堪重负!§4",
+  "effect.sky.erosion.warning": "§4!警告，碎甲层数过高!§4",
+  "effect.sky.erosion.break_again": "§d甲又爆哩?!§d §4受到伤害x%s(有概率)§4",
+  "effect.sky.erosion.hurt": "§4受到伤害x%s§4",
+  "effect.sky.erosion.break": "§d甲爆哩?!§d"
 }

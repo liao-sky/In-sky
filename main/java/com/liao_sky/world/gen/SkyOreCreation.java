@@ -11,8 +11,12 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class SkyOreCreation {
+
+    @SubscribeEvent(priority = EventPriority.HIGH)
     public static void generateOres(final BiomeLoadingEvent event){
         if(event.getCategory().equals(Biome.Category.MESA)){
             oreGenerate(event.getGeneration(),

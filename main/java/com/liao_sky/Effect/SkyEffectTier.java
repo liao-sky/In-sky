@@ -14,7 +14,7 @@ public class SkyEffectTier extends Effect {
     }
 
     public boolean isInstantenous() {
-        return false;
+        return instant;
     }//是否为即时效果
 
     @Override
