@@ -7,7 +7,7 @@ import net.minecraft.potion.EffectType;
 
 
 public class SkyEffects {
-    public static class ErosionEffect extends SkyEffectTier {
+    public static class ErosionEffect extends SkyEffectBase {
         public ErosionEffect(EffectType type, int color, boolean isInstant) {
             super(type, color, isInstant);
         }
@@ -30,9 +30,7 @@ public class SkyEffects {
         public void DamageItemInSlot(EquipmentSlotType slot, LivingEntity livingBase, int amount) {
             if (slot != EquipmentSlotType.MAINHAND && slot != EquipmentSlotType.OFFHAND) {
                 ItemStack stack = livingBase.getItemBySlot(slot);
-                stack.hurtAndBreak(amount, livingBase, (p_220287_1_) -> {
-                    p_220287_1_.broadcastBreakEvent(slot);
-                });
+                stack.hurtAndBreak(amount, livingBase, (p_220287_1_) -> p_220287_1_.broadcastBreakEvent(slot));
             }
         }
 
@@ -43,7 +41,7 @@ public class SkyEffects {
         }
     }
 
-    public static class FractureEffect extends SkyEffectTier {
+    public static class FractureEffect extends SkyEffectBase {
         public FractureEffect(EffectType type, int color, boolean isInstant) {
             super(type, color, isInstant);
         }

@@ -3,7 +3,7 @@ package com.liao_sky.Events;
 import com.liao_sky.Block.SkyOreBlock;
 import com.liao_sky.Effect.SkyEffects;
 import com.liao_sky.Item.armor.SkyArmorMaterial;
-import com.liao_sky.Item.SkyItemTier;
+import com.liao_sky.Item.SkyItemBase;
 import com.liao_sky.List.FoodList;
 import com.liao_sky.Sky;
 import net.minecraft.block.AbstractBlock;
@@ -84,31 +84,31 @@ public class RegistryEvents {
         );
 
         public static RegistryObject<Item> sky_sword = ITEMS.register("sky_sword",
-                ()-> new SwordItem(SkyItemTier.SkyTier,14, -1.5f,
+                ()-> new SwordItem(SkyItemBase.SkyTier,14, -1.5f,
                         new Item.Properties().tab(SKY)
                 )
         );
 
         public static RegistryObject<Item> sky_shovel = ITEMS.register("sky_shovel",
-                ()-> new AxeItem(SkyItemTier.SkyTier,3, -3.5f,
+                ()-> new AxeItem(SkyItemBase.SkyTier,3, -3.5f,
                         new Item.Properties().tab(SKY)
                 )
         );
 
         public static RegistryObject<Item> sky_pickaxe = ITEMS.register("sky_pickaxe",
-                ()-> new PickaxeItem(SkyItemTier.SkyTier,3, -3.5f,
+                ()-> new PickaxeItem(SkyItemBase.SkyTier,3, -3.5f,
                         new Item.Properties().tab(SKY)
                 )
         );
 
         public static RegistryObject<Item> sky_axe = ITEMS.register("sky_axe",
-                ()-> new AxeItem(SkyItemTier.SkyTier,12, -2.5f,
+                ()-> new AxeItem(SkyItemBase.SkyTier,12, -2.5f,
                         new Item.Properties().tab(SKY)
                 )
         );
 
         public static RegistryObject<Item> sky_hoe = ITEMS.register("sky_hoe",
-                ()-> new HoeItem(SkyItemTier.SkyTier,3, -3.5f,
+                ()-> new HoeItem(SkyItemBase.SkyTier,3, -3.5f,
                         new Item.Properties().tab(SKY)
                 )
         );

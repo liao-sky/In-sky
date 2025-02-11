@@ -7,7 +7,7 @@ import net.minecraft.util.LazyValue;
 
 import java.util.function.Supplier;
 
-public enum SkyItemTier implements IItemTier{
+public enum SkyItemBase implements IItemTier{
     SkyTier(5,2500,15.0f,5.0f,5,
             () ->
                 Ingredient.of(RegistryEvents.ItemRegistry.sky_ingot.get())
@@ -19,7 +19,7 @@ public enum SkyItemTier implements IItemTier{
     private final int enchantmentValue;
     private final LazyValue<Ingredient> repairIngredient;
 
-    SkyItemTier(int p_i48458_3_, int p_i48458_4_, float p_i48458_5_, float p_i48458_6_, int p_i48458_7_, Supplier<Ingredient> p_i48458_8_) {
+    SkyItemBase(int p_i48458_3_, int p_i48458_4_, float p_i48458_5_, float p_i48458_6_, int p_i48458_7_, Supplier<Ingredient> p_i48458_8_) {
         this.level = p_i48458_3_;
         this.uses = p_i48458_4_;
         this.speed = p_i48458_5_;

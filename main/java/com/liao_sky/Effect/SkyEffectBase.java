@@ -4,11 +4,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 
-public class SkyEffectTier extends Effect {
+public class SkyEffectBase extends Effect {
     private final boolean instant;
     private boolean isRegistered = false;
 
-    public SkyEffectTier(EffectType type, int color, boolean isInstant) {
+    public SkyEffectBase(EffectType type, int color, boolean isInstant) {
         super(type, color);
         this.instant = isInstant;
     }
@@ -40,7 +40,7 @@ public class SkyEffectTier extends Effect {
         }
     }
 
-    public SkyEffectTier onRegister() {
+    public SkyEffectBase onRegister() {
         isRegistered = true;
         return this;
     }
