@@ -30,5 +30,6 @@
   "effect.sky.erosion.break": "¡ìdArmor is broken?!¡ìd",
   "effect.sky.fracture.hurt": "¡ìdWounded!¡ìd",
   "effect.sky.fracture.severe": "¡ìdThe fracture was severe¡ìd",
-  "effect.sky.fracture.begin": "¡ìdYou have broken bones¡ìd"
+  "effect.sky.fracture.begin": "¡ìdYou have broken bones¡ìd",
+  "enchantment.sky.erosion_protection": "Erosion Protection"
 }

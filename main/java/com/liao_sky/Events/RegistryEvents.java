@@ -2,6 +2,7 @@ package com.liao_sky.Events;
 
 import com.liao_sky.Block.SkyOreBlock;
 import com.liao_sky.Effect.SkyEffects;
+import com.liao_sky.Enchant.SkyEnchants;
 import com.liao_sky.Item.armor.SkyArmorMaterial;
 import com.liao_sky.Item.SkyItemBase;
 import com.liao_sky.List.FoodList;
@@ -10,6 +11,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.potion.*;
@@ -175,7 +177,7 @@ public class RegistryEvents {
                 ()->new SkyEffects.FractureEffect(EffectType.HARMFUL,0xFFFFFF,false));
     }
 
-    public static class  PotionRegistry{
+    public static class PotionRegistry{
         public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTION_TYPES, MOD_ID);
         public static RegistryObject<Potion> erosion = POTIONS.register("erosion",
                 ()->new Potion(new EffectInstance(EffectRegistry.erosion.get(),20*45)));
@@ -185,5 +187,11 @@ public class RegistryEvents {
 
         public static RegistryObject<Potion> strong_erosion = POTIONS.register("strong_erosion",
                 ()->new Potion("erosion",new EffectInstance(EffectRegistry.erosion.get(),20*45,1)));
+    }
+
+    public static class EnchantRegistry{
+        public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS,MOD_ID);
+        public static RegistryObject<Enchantment> erosion_protection = ENCHANTMENTS.register("erosion_protection",
+                SkyEnchants.ErosionProtection::new);
     }
 }

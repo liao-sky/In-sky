@@ -30,5 +30,6 @@
   "effect.sky.erosion.warning": "§4!警告，碎甲层数过高！§4",
   "effect.sky.erosion.break_again": "§d甲又爆哩?!§d §4受到伤害x%s(有概率)§4",
   "effect.sky.erosion.hurt": "§4受到伤害x%s§4",
-  "effect.sky.erosion.break": "§d甲爆哩?!§d"
+  "effect.sky.erosion.break": "§d甲爆哩?!§d",
+  "enchantment.sky.erosion_protection": "碎甲保护"
 }
